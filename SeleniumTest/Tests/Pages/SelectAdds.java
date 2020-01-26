@@ -1,4 +1,4 @@
-package Pages.Pages;
+package com.company;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -11,21 +11,10 @@ public class SelectAdds {
         this.driver = driver;
     }
 
-    public void setRandomSeats() throws InterruptedException {
+    public void setBags(String x){
         JavascriptExecutor js;
         js = (JavascriptExecutor) driver;
 
-        js.executeScript("window.scrollTo(0,837)");
-        driver.findElement(By.xpath("/html/body/seats-root/div/main/seats-container/div/div/div[2]/div/seats-actions/span[1]/ry-tooltip")).click();
-        Thread.sleep(5000);
-        js.executeScript("window.scrollTo(0,837)");
-        driver.findElement(By.xpath("/html/body/seats-root/div/main/seats-container/div/div/div[2]/div/seats-actions/span[1]/ry-tooltip")).click();
-        Thread.sleep(5000);
-    }
-    public void setBags(String x) throws InterruptedException {
-        JavascriptExecutor js;
-        js = (JavascriptExecutor) driver;
-        Thread.sleep(5000);
         if(x == "included")
             driver.findElement(By.xpath("/html/body/bags-root/bags-app-container/div/main/div/ry-spinner/section[1]/bags-cabin-bag/bags-bag-layout/div/div/div[2]/bags-cabin-bag-journey-container/bags-cabin-bag-row/bags-cabin-bag-products-container/bags-cabin-bag-product[1]/div/bags-product-selector/div/div[1]/ry-checkbox/label/div/div[1]")).click();
         else if(x == "priority")

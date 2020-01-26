@@ -1,12 +1,11 @@
-import Pages.Pages.*;
+import Pages.FirstPage;
+import Pages.LoginPage;
+import Pages.SelectAdds;
+import Pages.SelectFlight;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.util.concurrent.TimeUnit;
 
 public class Testing {
 
@@ -17,43 +16,31 @@ public class Testing {
         String webURL = "https://www.ryanair.com/ie/en";
         System.setProperty("webdriver.chrome.driver", "C:/Users/Talida/Desktop/chromedriver_win32/chromedriver.exe");
         WebDriver driver = new ChromeDriver();
-        JavascriptExecutor js;
-        js = (JavascriptExecutor) driver;
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get(webURL);
-        driver.manage().window().maximize();
-
 
         LoginPage loginPage = new LoginPage(driver);
         loginPage.setLogin();
 
         FirstPage firstPage = new FirstPage(driver);
         firstPage.setReturnTicket();
-        Thread.sleep(3000);
         firstPage.searchFlight("toulouse", "malta");
-
+        Thread.sleep(3000);
 
         SelectFlight selectFlightPage = new SelectFlight(driver);
         selectFlightPage.setPackageValue();
-        Thread.sleep(4000);
-        selectFlightPage.setPassenger("Ms","talida","rosioru");
+        selectFlightPage.setPassanger("ms","talida","rosioru");
 
-        Thread.sleep(10000);
+        Thread.sleep(5000);
+        driver.findElement(By.xpath("/html/body/seats-root/div/main/seats-container/div/div[3]/div[2]/div/seats-actions/span[1]/ry-tooltip")).click();
+        Thread.sleep(5000);
+        driver.findElement(By.xpath("/html/body/seats-root/div/main/seats-container/div/div[3]/div[2]/div/seats-actions/span[1]/ry-tooltip")).click();
+
         SelectAdds selectAdds = new SelectAdds(driver);
-        selectAdds.setRandomSeats();
+        Thread.sleep(10000);
         selectAdds.setBags("included");
         Thread.sleep(10000);
         selectAdds.setNoAdds();
-        Thread.sleep(10000);
 
-        PageCheckOut checkOut = new PageCheckOut(driver);
-        checkOut.setCheckOut();
-        Thread.sleep(10000);
-        checkOut.setPhone();
-        Thread.sleep(10000);
-        checkOut.setNoInssurance();
-        checkOut.setCard("112500","5555555555555555", "0921", "456","str. Victoriei", "Costesti", "Talida Rosioru");
-        checkOut.setCurrency();
-        checkOut.pay();
+
     }
 }

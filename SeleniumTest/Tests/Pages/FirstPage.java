@@ -1,4 +1,4 @@
-package Pages.Pages;
+package com.company;
 
 import org.openqa.selenium.*;
 
@@ -14,7 +14,8 @@ public class FirstPage {
     }
 
     public void setReturnTicket(){
-        driver.findElement(By.xpath("/html/body/hp-app-root/hp-home-container/hp-home/hp-search-widget/div/hp-flight-search-widget-container/hp-flight-search-widget/hp-trip-type-container/hp-trip-type/hp-trip-type-button[1]/button/label")).click();
+        driver.findElement(By.xpath("/html/body/hp-app-root/hp-home-container/hp-home/hp-search-widget/div/hp-flight-search-widget-container/hp-flight-search-widget/hp-trip-type-container/hp-trip-type/hp-trip-type-button[1]/button/icon")).click();
+
     }
     public void setOneWayTicket(){
         driver.findElement(By.xpath("/html/body/hp-app-root/hp-home-container/hp-home/hp-search-widget/div/hp-flight-search-widget-container/hp-flight-search-widget/hp-trip-type-container/hp-trip-type/hp-trip-type-button[2]/button/icon")).click();
@@ -38,10 +39,8 @@ public class FirstPage {
         driver.findElement(By.xpath("/html/body/hp-app-root/hp-home-container/hp-home/hp-search-widget/div/hp-flight-search-widget-container/hp-flight-search-widget/hp-trip-type-container/hp-trip-type/hp-trip-type-button[1]/button/label")).click();
     }
 
-    public void setDepartureDate() throws InterruptedException {
-        driver.findElement(By.xpath("/html/body/hp-app-root/hp-home-container/hp-home/hp-search-widget/div/hp-flight-search-widget-container/hp-flight-search-widget/div[1]/hp-flight-search-widget-controls-container/hp-flight-search-widget-controls/div[2]/div/hp-input-button[1]/div/div[2]")).click();
-        Thread.sleep(2000);
-        driver.findElement(By.xpath("//*[@id=\"ry-tooltip-9\"]/div[2]/hp-lazy-controls-tooltips/hp-app-controls-tooltips/hp-controls-tooltips-container/hp-controls-tooltips/hp-datepicker-container/hp-datepicker/ry-datepicker-desktop/month-toggle/div/div[2]/div/div[3]/div[2]")).click();
+    public void setDepartureDate(){
+        //driver.findElement(By.id("ry-tooltip-8")).click();
         driver.findElement(By.xpath("/html/body/hp-app-root/hp-home-container/hp-home/hp-search-widget/div/hp-flight-search-widget-container/hp-flight-search-widget/div[1]/hp-flight-search-widget-controls-container/hp-flight-search-widget-controls/div[2]/div/hp-input-button[1]/div")).click();
         driver.findElement(By.xpath("/html/body/ry-tooltip/div[2]/hp-lazy-controls-tooltips/hp-app-controls-tooltips/hp-controls-tooltips-container/hp-controls-tooltips/hp-datepicker-container/hp-datepicker/ry-datepicker-desktop/div/calendar[2]/calendar-body/div[5]/div[10]/div")).click();
     }
@@ -51,15 +50,11 @@ public class FirstPage {
         driver.findElement(By.xpath("/html/body/ry-tooltip/div[2]/hp-lazy-controls-tooltips/hp-app-controls-tooltips/hp-controls-tooltips-container/hp-controls-tooltips/hp-datepicker-container/hp-datepicker/ry-datepicker-desktop/div/calendar[1]/calendar-body/div[5]/div[19]/div")).click();
     }
 
-    public void searchFlight(String fromCity, String to) throws InterruptedException {
+    public void searchFlight(String fromCity, String to){
         setFrom(fromCity);
-        Thread.sleep(3000);
         setTo(to);
-        Thread.sleep(3000);
         setDepartureDate();
-        Thread.sleep(3000);
         setReturningDate();
-        Thread.sleep(3000);
         driver.findElement(By.cssSelector(".flight-search-widget__start-search")).click();
     }
 

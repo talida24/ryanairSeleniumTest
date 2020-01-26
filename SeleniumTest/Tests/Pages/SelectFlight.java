@@ -1,12 +1,7 @@
-package Pages.Pages;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-
-import java.util.List;
 
 public class SelectFlight {
     public WebDriver driver;
@@ -15,8 +10,7 @@ public class SelectFlight {
         this.driver = driver;
     }
 
-    public void setFlightFrom() throws InterruptedException {
-        Thread.sleep(4000);
+    public void setFlightFrom(){
         driver.findElement(By.xpath("/html/body/flights-root/div/flights-summary-container/flights-summary/div/div[1]/journey-container/journey/flight-list/div")).click();
     }
 
@@ -58,28 +52,27 @@ public class SelectFlight {
         js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
     }
 
-    public void setPackageRegular() throws InterruptedException {
+    public void setPackageRegular(){
         setFlightFrom();
         setPackageFrom("regular");
         setFlightTo();
         setPackageTo("regular");
     }
 
-    public void setPackagePlus() throws InterruptedException {
+    public void setPackagePlus(){
         setFlightFrom();
         setPackageFrom("plus");
         setFlightTo();
         setPackageTo("plus");
     }
 
-    public void setPassengerTitle(String title) throws InterruptedException {
+    public void setPassagerTitle(String title){
         driver.findElement(By.xpath("//*[@id=\"title-0-error-message\"]/div[2]/button")).click();
-        Thread.sleep(2000);
-        if(title == "Mr")
+        if(title == "mr")
             driver.findElement(By.xpath("//*[@id=\"title-0-error-message\"]/div[2]/div/div/ry-dropdown-item[1]/button")).click();
-            else if(title == "Mrs")
+            else if(title == "mrs")
             driver.findElement(By.xpath("//*[@id=\"title-0-error-message\"]/div[2]/div/div/ry-dropdown-item[2]/button")).click();
-                else if(title == "Ms")
+                else if(title == "ms")
             driver.findElement(By.xpath("//*[@id=\"title-0-error-message\"]/div[2]/div/div/ry-dropdown-item[1]/button")).click();
     }
 
@@ -93,8 +86,8 @@ public class SelectFlight {
         driver.findElement(By.xpath("//*[@id=\"formState.passengers.ADT-0.surname\"]")).sendKeys(secondName);
     }
 
-    public void setPassenger(String title, String firstName, String secondName) throws InterruptedException {
-        setPassengerTitle(title);
+    public void setPassanger(String title, String firstName, String secondName){
+        setPassagerTitle(title);
         setFirstName(firstName);
         setSecondName(secondName);
         driver.findElement(By.xpath("/html/body/flights-root/div/ng-component/continue-flow-container/continue-flow/div/div/button")).click();
