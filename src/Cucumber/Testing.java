@@ -5,39 +5,50 @@ import org.junit.Test;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.util.concurrent.TimeUnit;
 
 public class Testing {
 
-    private WebDriver driver;
-    private String webURL = "https://www.ryanair.com/ie/en";
+    public static WebDriver createWebDriver() {
+        String driver = System.getProperty("browser", "chrome");
+        switch(driver) {
+            case "firefox":
+                return new FirefoxDriver();
+            case "chrome":
+                System.setProperty("webdriver.chrome.driver", "C:/Users/Talida/Desktop/chromedriver_win32/chromedriver.exe");
+                return new ChromeDriver();
+            default:
+                throw new RuntimeException("Unsupported webdriver: " + driver);
+        }
+    }
+
+    WebDriver driver = createWebDriver();
+    JavascriptExecutor js;
+    String webURL = "https://www.ryanair.com/ie/en";
 
     @Test
-    public void first_page() throws InterruptedException {
+    public void testTwoAdultsOneKid() throws InterruptedException {
 
-        System.setProperty("webdriver.chrome.driver", "C:/Users/Talida/Desktop/chromedriver_win32/chromedriver.exe");
-        WebDriver driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();
-
-        JavascriptExecutor js;
         js = (JavascriptExecutor) driver;
 
         /***** variables for pages *****/
         FirstPage firstPage = new FirstPage(driver);
-        SelectFlight selectFlightPage = new SelectFlight(driver);
-        SelectAdds selectAdds = new SelectAdds(driver);
-        PageCheckOut checkOut = new PageCheckOut(driver);
+        SelectFlightPage selectFlightPage = new SelectFlightPage(driver);
+        SelectAddsPage selectAdds = new SelectAddsPage(driver);
+        CheckOutPage checkOut = new CheckOutPage(driver);
 
         driver.get(webURL);
 
         /***** login *****/
         LoginPage loginPage = new LoginPage(driver);
-        loginPage.setLogin();
+        loginPage.setLogin("ryanair.selenium@gmail.com", "Ryanair!2");
 
         /***** Search flight *****/
-        //firstPage.setReturnTicket();
+        firstPage.setReturnTicket();
         int noPassengers = firstPage.searchFlight("toulouse", "malta", 2,0,1,0, "Apr", "23", "Apr", "26");
 
         /***** Select flights for a passenger *****/
@@ -56,7 +67,7 @@ public class Testing {
 
         /***** Select no extras *****/
         selectAdds.setRandomSeats();
-        selectAdds.setBags("included");
+        selectAdds.setBags("included", 3);
         selectAdds.setNoAdds();
 
         /***** Payment *****/
@@ -66,6 +77,54 @@ public class Testing {
         checkOut.setCard("112500","5555555555555555", "0921", "456","str. Victoriei", "Costesti", "Talida Rosioru");
         checkOut.setCurrency();
         checkOut.pay();
+        checkOut.checkError();
+
+        driver.quit();
+    }
+
+    @Test
+    public void testOneAdult() throws InterruptedException {
+
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().window().maximize();
+        js = (JavascriptExecutor) driver;
+
+        /***** variables for pages *****/
+        FirstPage firstPage = new FirstPage(driver);
+        SelectFlightPage selectFlightPage = new SelectFlightPage(driver);
+        SelectAddsPage selectAdds = new SelectAddsPage(driver);
+        CheckOutPage checkOut = new CheckOutPage(driver);
+
+        driver.get(webURL);
+
+        /***** login *****/
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.setLogin("ryanair.selenium@gmail.com", "Ryanair!2");
+
+        /***** Search flight *****/
+        firstPage.setReturnTicket();
+        int noPassengers = firstPage.searchFlight("toulouse", "malta", 1,0,0,0, "Apr", "23", "Apr", "26");
+
+        /***** Select flights for a passenger *****/
+        selectFlightPage.setPackageValue();
+        js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollTo(0, 900)");
+        selectFlightPage.setPassenger("Mr","paul","oprea", 0, 'A');
+        selectFlightPage.next();
+
+        /***** Select no extras *****/
+        selectAdds.setRandomSeats();
+        selectAdds.setBags("included", 1);
+        selectAdds.setNoAdds();
+
+        /***** Payment *****/
+        checkOut.setCheckOut();
+        checkOut.setPhone();
+        checkOut.setNoInsurance();
+        checkOut.setCard("112500","5555555555555555", "0921", "456","str. Victoriei", "Costesti", "Talida Rosioru");
+        checkOut.setCurrency();
+        checkOut.pay();
+        checkOut.checkError();
 
         driver.quit();
     }

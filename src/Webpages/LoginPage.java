@@ -12,7 +12,7 @@ public class LoginPage {
         this.driver = driver;
     }
 
-    public void setLogin() throws InterruptedException {
+    public void setLogin(String email, String password) throws InterruptedException {
         Thread.sleep(2000);
         driver.findElement(By.xpath("//*[@id=\"glyphs.close\"]")).click();
         Thread.sleep(2000);
@@ -20,11 +20,11 @@ public class LoginPage {
         Thread.sleep(2000);
         driver.findElement(By.xpath("//*[@id=\"ry-modal-portal\"]/div/ry-login-signup-dialog/div/ry-login-signup-container/ry-login-signup/ry-login-container/ry-form/div[2]/form/div[1]/ry-input/label/span[2]/input")).click();
         Thread.sleep(2000);
-        driver.findElement(By.xpath("//*[@id=\"ry-modal-portal\"]/div/ry-login-signup-dialog/div/ry-login-signup-container/ry-login-signup/ry-login-container/ry-form/div[2]/form/div[1]/ry-input/label/span[2]/input")).sendKeys("ryanair.selenium@gmail.com");
+        driver.findElement(By.xpath("//*[@id=\"ry-modal-portal\"]/div/ry-login-signup-dialog/div/ry-login-signup-container/ry-login-signup/ry-login-container/ry-form/div[2]/form/div[1]/ry-input/label/span[2]/input")).sendKeys(email);
         Thread.sleep(2000);
         driver.findElement(By.xpath("//*[@id=\"ry-modal-portal\"]/div/ry-login-signup-dialog/div/ry-login-signup-container/ry-login-signup/ry-login-container/ry-form/div[2]/form/div[2]/ry-input/label/span[2]/input")).click();
         Thread.sleep(2000);
-        driver.findElement(By.xpath("//*[@id=\"ry-modal-portal\"]/div/ry-login-signup-dialog/div/ry-login-signup-container/ry-login-signup/ry-login-container/ry-form/div[2]/form/div[2]/ry-input/label/span[2]/input")).sendKeys("Ryanair!2");
+        driver.findElement(By.xpath("//*[@id=\"ry-modal-portal\"]/div/ry-login-signup-dialog/div/ry-login-signup-container/ry-login-signup/ry-login-container/ry-form/div[2]/form/div[2]/ry-input/label/span[2]/input")).sendKeys(password);
         Thread.sleep(2000);
         driver.findElement(By.xpath("//*[@id=\"ry-modal-portal\"]/div/ry-login-signup-dialog/div/ry-login-signup-container/ry-login-signup/ry-login-container/ry-form/div[2]/form/div[6]/button")).click();
     }

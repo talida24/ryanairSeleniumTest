@@ -31,6 +31,7 @@ public class FirstPage {
 
     public void setFrom(String fromCity) throws InterruptedException {
        WebElement from = driver.findElement(By.id("input-button__departure"));
+       System.out.println(fromCity);
        Thread.sleep(2000);
        from.click();
        from.sendKeys(Keys.chord(Keys.CONTROL, "a"));
