@@ -17,11 +17,11 @@ public class FirstPage {
 
     public void setReturnTicket() throws InterruptedException {
         Thread.sleep(5000);
-        driver.findElement(By.xpath("/html/body/hp-app-root/hp-home-container/hp-home/hp-search-widget/div/hp-flight-search-widget-container/hp-flight-search-widget/hp-trip-type-container/hp-trip-type/hp-trip-type-button[1]/button/label")).click();
+        driver.findElement(By.cssSelector("hp-trip-type-button:nth-child(1) .trip-type__label")).click();
     }
     public void setOneWayTicket() throws InterruptedException {
         Thread.sleep(5000);
-        driver.findElement(By.xpath("/html/body/hp-app-root/hp-home-container/hp-home/hp-search-widget/div/hp-flight-search-widget-container/hp-flight-search-widget/hp-trip-type-container/hp-trip-type/hp-trip-type-button[2]/button/icon")).click();
+        driver.findElement(By.cssSelector("hp-trip-type-button:nth-child(2) .trip-type__label")).click();
     }
 
     @FindBy(id="input-button__departure")
@@ -31,7 +31,6 @@ public class FirstPage {
 
     public void setFrom(String fromCity) throws InterruptedException {
        WebElement from = driver.findElement(By.id("input-button__departure"));
-       System.out.println(fromCity);
        Thread.sleep(2000);
        from.click();
        from.sendKeys(Keys.chord(Keys.CONTROL, "a"));
@@ -43,7 +42,7 @@ public class FirstPage {
     public void setTo(String toCity) throws InterruptedException {
         driver.findElement(By.id("input-button__destination")).sendKeys(toCity);
         Thread.sleep(2000);
-        driver.findElement(By.xpath("/html/body/hp-app-root/hp-home-container/hp-home/hp-search-widget/div/hp-flight-search-widget-container/hp-flight-search-widget/hp-trip-type-container/hp-trip-type/hp-trip-type-button[1]/button/label")).click();
+        driver.findElement(By.cssSelector("hp-trip-type")).click();
     }
 
     public void setDepartureDate(String month, String day) throws InterruptedException {

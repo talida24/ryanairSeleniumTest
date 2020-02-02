@@ -37,23 +37,39 @@ public class CheckOutPage {
         Thread.sleep(2000);
         try {
             driver.findElement(By.xpath("/html/body/app-root/ng-component/ry-spinner/div/payment-form/form/div[2]/insurance/div/div[3]/div[1]/ry-checkbox/label/div/div[1]")).click();
-        } catch(NoSuchElementException e){
-            driver.findElement(By.xpath("/html/body/app-root/ng-component/ry-spinner/div/payment-form/form/div[2]/insurance/div/div[4]/div[1]/ry-checkbox/label/div/div[1]")).click();
-        }
+        } catch(Exception e){
+            try {
+                driver.findElement(By.xpath("/html/body/app-root/ng-component/ry-spinner/div/payment-form/form/div[2]/insurance/div/div[4]/div[1]/ry-checkbox/label/div/div[1]")).click();
+            }catch (Exception ee){
+
+            }
+            }
     }
 
     public void setCard(String zipCode, String cardNumber, String expiryDate, String CVV, String address, String city, String cardholderName) throws InterruptedException {
         js = (JavascriptExecutor) driver;
-        js.executeScript("window.scrollTo(0, 870)");
+        String[] parts = expiryDate.split("/");
+        String expiry_month = parts[0];
+        int expiry_year = Integer.parseInt(parts[1]);
+        expiry_year -= 20;
+        Thread.sleep(2000);
+        js.executeScript("window.scrollTo(0, 770)");
         Thread.sleep(2000);
         driver.findElement(By.xpath("/html/body/app-root/ng-component/ry-spinner/div/payment-form/form/div[5]/payment-methods/div/div/ry-tabs/div[2]/add-method-modal/form/div/div/div[1]/div[2]/card-details/form/ry-input-d[1]/div/input")).click();
         driver.findElement(By.xpath("/html/body/app-root/ng-component/ry-spinner/div/payment-form/form/div[5]/payment-methods/div/div/ry-tabs/div[2]/add-method-modal/form/div/div/div[1]/div[2]/card-details/form/ry-input-d[1]/div/input")).sendKeys(cardNumber);
         Thread.sleep(2000);
-        driver.findElement(By.xpath("/html/body/app-root/ng-component/ry-spinner/div/payment-form/form/div[5]/payment-methods/div/div/ry-tabs/div[2]/add-method-modal/form/div/div/div[1]/div[2]/card-details/form/expiry-date/label/span[2]/input")).click();
-        driver.findElement(By.xpath("/html/body/app-root/ng-component/ry-spinner/div/payment-form/form/div[5]/payment-methods/div/div/ry-tabs/div[2]/add-method-modal/form/div/div/div[1]/div[2]/card-details/form/expiry-date/label/span[2]/input")).sendKeys(expiryDate);
+
+        driver.findElement(By.xpath("/html/body/app-root/ng-component/ry-spinner/div/payment-form/form/div[5]/payment-methods/div/div/ry-tabs/div[2]/add-method-modal/form/div/div/div[1]/div[2]/card-details/form/expiry-date/label/span[2]/div[1]/ry-dropdown/div[2]/button")).click();
         Thread.sleep(2000);
-        driver.findElement(By.xpath("/html/body/app-root/ng-component/ry-spinner/div/payment-form/form/div[5]/payment-methods/div/div/ry-tabs/div[2]/add-method-modal/form/div/div/div[1]/div[2]/card-details/form/verification-code/div/ry-input-d/div/input")).click();
-        driver.findElement(By.xpath("/html/body/app-root/ng-component/ry-spinner/div/payment-form/form/div[5]/payment-methods/div/div/ry-tabs/div[2]/add-method-modal/form/div/div/div[1]/div[2]/card-details/form/verification-code/div/ry-input-d/div/input")).sendKeys(CVV);
+        driver.findElement(By.xpath("/html/body/app-root/ng-component/ry-spinner/div/payment-form/form/div[5]/payment-methods/div/div/ry-tabs/div[2]/add-method-modal/form/div/div/div[1]/div[2]/card-details/form/expiry-date/label/span[2]/div[1]/ry-dropdown/div[2]/div/div/ry-dropdown-item["+ expiry_month +"]")).click();
+        Thread.sleep(2000);
+
+        driver.findElement(By.xpath("/html/body/app-root/ng-component/ry-spinner/div/payment-form/form/div[5]/payment-methods/div/div/ry-tabs/div[2]/add-method-modal/form/div/div/div[1]/div[2]/card-details/form/expiry-date/label/span[2]/div[2]/ry-dropdown/div[2]/button")).click();
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("/html/body/app-root/ng-component/ry-spinner/div/payment-form/form/div[5]/payment-methods/div/div/ry-tabs/div[2]/add-method-modal/form/div/div/div[1]/div[2]/card-details/form/expiry-date/label/span[2]/div[2]/ry-dropdown/div[2]/div/div/ry-dropdown-item["+ expiry_year +"]")).click();
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("/html/body/app-root/ng-component/ry-spinner/div/payment-form/form/div[5]/payment-methods/div/div/ry-tabs/div[2]/add-method-modal/form/div/div/div[1]/div[2]/card-details/form/verification-code/div/span[1]/ry-input-d/div/input")).click();
+        driver.findElement(By.xpath("/html/body/app-root/ng-component/ry-spinner/div/payment-form/form/div[5]/payment-methods/div/div/ry-tabs/div[2]/add-method-modal/form/div/div/div[1]/div[2]/card-details/form/verification-code/div/span[1]/ry-input-d/div/input")).sendKeys(CVV);
         Thread.sleep(2000);
         driver.findElement(By.xpath("/html/body/app-root/ng-component/ry-spinner/div/payment-form/form/div[5]/payment-methods/div/div/ry-tabs/div[2]/add-method-modal/form/div/div/div[2]/billing-address/address-form/form/ry-input-d[1]/div/input")).click();
         driver.findElement(By.xpath("/html/body/app-root/ng-component/ry-spinner/div/payment-form/form/div[5]/payment-methods/div/div/ry-tabs/div[2]/add-method-modal/form/div/div/div[2]/billing-address/address-form/form/ry-input-d[1]/div/input")).sendKeys(address);

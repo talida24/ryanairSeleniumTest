@@ -1,9 +1,8 @@
 package Webpages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
+import gherkin.lexer.Th;
+import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 
 public class SelectAddsPage {
     WebDriver driver;
@@ -15,69 +14,63 @@ public class SelectAddsPage {
 
     public void setRandomSeats() throws InterruptedException {
         js = (JavascriptExecutor) driver;
-        Thread.sleep(5000);
         try {
-            if(driver.findElement(By.xpath("//*[@id=\"ry-modal-portal\"]/div/seats-modal/ry-message-dialog/ry-dialog/div/div[2]/div[2]/button")) != null)
-                driver.findElement(By.xpath("//*[@id=\"ry-modal-portal\"]/div/seats-modal/ry-message-dialog/ry-dialog/div/div[2]/div[2]/button")).click();
-        } catch (NoSuchElementException e) {
-            System.out.println("No random 1");
+            Thread.sleep(5000);
+            driver.findElement(By.xpath("//*[@id=\"ry-modal-portal\"]/div/seats-modal/ry-message-dialog/ry-dialog/div/div[2]/div[2]/button")).click();
+        } catch (Exception e) {
+            System.out.println("no modal");
         }
 
         js.executeScript("window.scrollTo(0,document.body.scrollHeight)");
-        Thread.sleep(5000);
         try {
-            if (driver.findElement(By.xpath("/html/body/seats-root/div/main/seats-container/div/div/div[2]/div/seats-actions/span[1]/ry-tooltip")) != null)
-                driver.findElement(By.xpath("/html/body/seats-root/div/main/seats-container/div/div/div[2]/div/seats-actions/span[1]/ry-tooltip")).click();
-        } catch (NoSuchElementException e) {
-            System.out.println("No random 2");
+            driver.findElement(By.xpath("/html/body/seats-root/div/main/seats-container/div/div/div[2]/div/seats-actions/span[1]/ry-tooltip")).click();
+        } catch (Exception e) {
             driver.findElement(By.xpath("/html/body/seats-root/div/main/seats-container/div/div/div[1]/div/seats-prompt/ry-action-sheet/div/div/div[1]/div/div/div[2]/button[2]")).click();
         }
 
         try {
-            if (driver.findElement(By.xpath("/html/body/seats-root/ry-message-renderer/hero-loader-with-data/ng-component/ry-default-takeover/div/div[2]/button[2]")) != null) {
-                driver.findElement(By.xpath("/html/body/seats-root/ry-message-renderer/hero-loader-with-data/ng-component/ry-default-takeover/div/div[2]/button[2]")).click();
-            }
-        } catch (NoSuchElementException e) {
-            System.out.println("No random 4");
+            driver.findElement(By.xpath("/html/body/seats-root/ry-message-renderer/hero-loader-with-data/ng-component/ry-default-takeover/div/div[2]/button[2]")).click();
+        } catch (Exception e) {
         }
-
         js.executeScript("window.scrollTo(0,document.body.scrollHeight)");
-        Thread.sleep(5000);
+
         try{
-            if(driver.findElement(By.xpath("/html/body/seats-root/div/main/seats-container/div/div/div[2]/div/seats-actions/span[1]/ry-tooltip")).isDisplayed()) {
-                driver.findElement(By.xpath("/html/body/seats-root/div/main/seats-container/div/div/div[2]/div/seats-actions/span[1]/ry-tooltip")).click();
-            }
+            driver.findElement(By.xpath("/html/body/seats-root/div/main/seats-container/div/div/div[2]/div/seats-actions/span[1]/ry-tooltip")).click();
         } catch (NoSuchElementException e) {
-            System.out.println("No random 4");
             //driver.findElement(By.xpath("/html/body/seats-root/div/main/seats-container/div/div/div[1]/div/seats-prompt/ry-action-sheet/div/div/div[1]/div/div/div[2]/button[2]")).click();
         }
     }
 
     public void setBags(String x, int noPassengers) throws InterruptedException {
         js = (JavascriptExecutor) driver;
-        Thread.sleep(5000);
+        Thread.sleep(2000);
 
         if (noPassengers == 1) {
-            if (x == "included")
+            if (x == "included") {
                 driver.findElement(By.xpath("/html/body/bags-root/bags-app-container/div/main/div/ry-spinner/section[1]/bags-cabin-bag/bags-bag-layout/div/div/div[2]/bags-cabin-bag-journey-container/bags-cabin-bag-row/bags-cabin-bag-products-container/bags-cabin-bag-product[1]/div/bags-product-selector/div/div[1]/ry-checkbox/label/div/div[1]")).click();
+                driver.findElement(By.xpath("/html/body/bags-root/bags-app-container/div/main/div/ry-spinner/section[1]/bags-cabin-bag/bags-bag-layout/div/div/div[2]/bags-cabin-bag-journey-container[2]/bags-cabin-bag-row/bags-cabin-bag-products-container/bags-cabin-bag-product[1]/div/bags-product-selector/div/div[1]/ry-checkbox/label/div/div[1]")).click();
+            }
             else if (x == "priority")
                 driver.findElement(By.xpath("/html/body/bags-root/bags-app-container/div/main/div/ry-spinner/section[1]/bags-cabin-bag/bags-bag-layout/div/div/div[2]/bags-cabin-bag-journey-container/bags-cabin-bag-row/bags-cabin-bag-products-container/bags-cabin-bag-product[2]/div/bags-product-selector/div/div[1]/ry-checkbox/label/div/div[1]")).click();
-            js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+                driver.findElement(By.xpath("/html/body/bags-root/bags-app-container/div/main/div/ry-spinner/section[1]/bags-cabin-bag/bags-bag-layout/div/div/div[2]/bags-cabin-bag-journey-container[2]/bags-cabin-bag-row/bags-cabin-bag-products-container/bags-cabin-bag-product[2]/div/bags-product-selector/div/div[1]/ry-checkbox/label/div/div[1]")).click();
         }
         else {
             for(int i=1;i<=noPassengers;i++) {
                 if (x == "included") {
-                    driver.findElement(By.xpath("/html/body/bags-root/bags-app-container/div/main/div/ry-spinner/section[1]/bags-cabin-bag/bags-bag-layout/div/div/div[2]/bags-cabin-bag-journey-container[1]/bags-cabin-bag-row[" + i + "]/bags-cabin-bag-products-container/bags-cabin-bag-product[1]/div/bags-product-selector/div/div[1]/ry-checkbox/label/div/div[1]")).click();
-                    driver.findElement(By.xpath("/html/body/bags-root/bags-app-container/div/main/div/ry-spinner/section[1]/bags-cabin-bag/bags-bag-layout/div/div/div[2]/bags-cabin-bag-journey-container[2]/bags-cabin-bag-row[" + i + "]/bags-cabin-bag-products-container/bags-cabin-bag-product[1]/div/bags-product-selector/div/div[1]/ry-checkbox/label/div/div[1]")).click();
+                    WebElement element = driver.findElement(By.xpath("/html/body/bags-root/bags-app-container/div/main/div/ry-spinner/section[1]/bags-cabin-bag/bags-bag-layout/div/div/div[2]/bags-cabin-bag-journey-container[1]/bags-cabin-bag-row[" + i + "]/bags-cabin-bag-products-container/bags-cabin-bag-product[1]/div/bags-product-selector/div/div[1]/ry-checkbox/label/div/div[1]"));
+                    Actions actions = new Actions(driver);
+                    actions.moveToElement(element).click().perform();
+                    element = driver.findElement(By.xpath("/html/body/bags-root/bags-app-container/div/main/div/ry-spinner/section[1]/bags-cabin-bag/bags-bag-layout/div/div/div[2]/bags-cabin-bag-journey-container[2]/bags-cabin-bag-row[" + i + "]/bags-cabin-bag-products-container/bags-cabin-bag-product[1]/div/bags-product-selector/div/div[1]/ry-checkbox/label/div/div[1]"));
+                    actions.moveToElement(element).click().perform();
+                    Thread.sleep(2000);
                 } else if (x == "priority") {
                     driver.findElement(By.xpath("/html/body/bags-root/bags-app-container/div/main/div/ry-spinner/section[1]/bags-cabin-bag/bags-bag-layout/div/div/div[2]/bags-cabin-bag-journey-container[1]/bags-cabin-bag-row[" + i + "]/bags-cabin-bag-products-container/bags-cabin-bag-product[2]/div/bags-product-selector/div/div[1]/ry-checkbox/label/div/div[1]")).click();
                     driver.findElement(By.xpath("/html/body/bags-root/bags-app-container/div/main/div/ry-spinner/section[1]/bags-cabin-bag/bags-bag-layout/div/div/div[2]/bags-cabin-bag-journey-container[2]/bags-cabin-bag-row[" + i + "]/bags-cabin-bag-products-container/bags-cabin-bag-product[2]/div/bags-product-selector/div/div[1]/ry-checkbox/label/div/div[1]")).click();
                 }
-                js.executeScript("window.scrollTo(0, 500)");
             }
         }
-
-        Thread.sleep(5000);
+        js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+        Thread.sleep(2000);
         driver.findElement(By.xpath("/html/body/bags-root/bags-app-container/div/main/div/ry-spinner/section[6]/bags-continue-flow-container/bags-continue-flow/button")).click();
     }
 

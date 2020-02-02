@@ -15,12 +15,13 @@ import java.util.concurrent.TimeUnit;
 public class CucumberGlue {
 
     public static WebDriver createWebDriver() {
+
         String driver = System.getProperty("browser", "chrome");
         switch(driver) {
             case "firefox":
                 return new FirefoxDriver();
             case "chrome":
-                System.setProperty("webdriver.chrome.driver", "C:/Users/Talida/Desktop/chromedriver_win32/chromedriver.exe");
+                System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
                 return new ChromeDriver();
             default:
                 throw new RuntimeException("Unsupported webdriver: " + driver);
@@ -56,24 +57,39 @@ public class CucumberGlue {
         selectAdds.setRandomSeats();
         selectAdds.setBags("included", 3);
         selectAdds.setNoAdds();
-        throw new PendingException();
     }
 
     @When("^I pay for booking with card details \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\",\"([^\"]*)\" and \"([^\"]*)\"$")
     public void iPayForBookingWithCardDetailsAnd(String cardNo, String CVV, String date, String cardholderName, String address, String city, String zip, String country) throws Throwable {
-        System.out.println("pay");
         checkOut.setCheckOut();
-        checkOut.setPhone();
         checkOut.setNoInsurance();
+        checkOut.setPhone();
         checkOut.setCard(zip,cardNo, date, CVV ,address, city, cardholderName);
         checkOut.setCurrency();
         checkOut.pay();
-        throw new PendingException();
     }
 
     @Then("^I should get payment declined message$")
-    public void iShouldGetPaymentDeclinedMessage() {
-        System.out.println("rhat");
+    public void iShouldGetPaymentDeclinedMessage() throws InterruptedException {
         checkOut.checkError();
     }
+
+    @Given("^I make a booking from \"([^\"]*)\" to \"([^\"]*)\" on \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" for (\\d+) adults$")
+    public void i_make_a_booking_from_to_on_for_adults(String from, String to, String dateF, String monthF, String dateR, String monthR, int noAdults) throws Throwable {
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        driver.get(webURL);
+        driver.manage().window().maximize();
+        loginPage.setLogin("ryanair.selenium@gmail.com", "Ryanair!2");
+        int noPassengers = firstPage.searchFlight(from, to, noAdults,0,0,0, monthF, dateF, monthR, dateR);
+        selectFlightPage.setPackageValue();
+        js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollTo(0, 900)");
+        selectFlightPage.setPassenger("Mr","paul","oprea", 0, 'A');
+        js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+        selectFlightPage.next();
+        selectAdds.setRandomSeats();
+        selectAdds.setBags("included", 1);
+        selectAdds.setNoAdds();
+    }
+
 }

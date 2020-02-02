@@ -17,7 +17,7 @@ public class Testing {
             case "firefox":
                 return new FirefoxDriver();
             case "chrome":
-                System.setProperty("webdriver.chrome.driver", "C:/Users/Talida/Desktop/chromedriver_win32/chromedriver.exe");
+                System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
                 return new ChromeDriver();
             default:
                 throw new RuntimeException("Unsupported webdriver: " + driver);
@@ -48,7 +48,7 @@ public class Testing {
         loginPage.setLogin("ryanair.selenium@gmail.com", "Ryanair!2");
 
         /***** Search flight *****/
-        firstPage.setReturnTicket();
+        //firstPage.setReturnTicket();
         int noPassengers = firstPage.searchFlight("toulouse", "malta", 2,0,1,0, "Apr", "23", "Apr", "26");
 
         /***** Select flights for a passenger *****/
@@ -74,7 +74,7 @@ public class Testing {
         checkOut.setCheckOut();
         checkOut.setPhone();
         checkOut.setNoInsurance();
-        checkOut.setCard("112500","5555555555555555", "0921", "456","str. Victoriei", "Costesti", "Talida Rosioru");
+        checkOut.setCard("112500","5555555555555555", "09/21", "456","str. Victoriei", "Costesti", "Talida Rosioru");
         checkOut.setCurrency();
         checkOut.pay();
         checkOut.checkError();
@@ -100,9 +100,10 @@ public class Testing {
         /***** login *****/
         LoginPage loginPage = new LoginPage(driver);
         loginPage.setLogin("ryanair.selenium@gmail.com", "Ryanair!2");
+        //loginPage.setLogout();
 
         /***** Search flight *****/
-        firstPage.setReturnTicket();
+        //firstPage.setReturnTicket();
         int noPassengers = firstPage.searchFlight("toulouse", "malta", 1,0,0,0, "Apr", "23", "Apr", "26");
 
         /***** Select flights for a passenger *****/
@@ -121,7 +122,7 @@ public class Testing {
         checkOut.setCheckOut();
         checkOut.setPhone();
         checkOut.setNoInsurance();
-        checkOut.setCard("112500","5555555555555555", "0921", "456","str. Victoriei", "Costesti", "Talida Rosioru");
+        checkOut.setCard("112500","5555555555555555", "09/21", "456","str. Victoriei", "Costesti", "Talida Rosioru");
         checkOut.setCurrency();
         checkOut.pay();
         checkOut.checkError();

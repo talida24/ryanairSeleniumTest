@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="untitled:jar" />
+      <artifact name="Test2Adults1Kid:jar2" />
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
@@ -18,6 +18,7 @@
   <component name="CoverageViewManager">
     <option name="myElementSize" value="216" />
   </component>
+  <component name="ExportTestResults" outputFolder="$PROJECT_DIR$" userTempatePath="" />
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -37,21 +38,18 @@
   </component>
   <component name="PropertiesComponent">
     <property name="Downloaded.Files.Path.Enabled" value="true" />
-    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.Annotations" value="true" />
     <property name="Repository.Attach.JavaDocs" value="false" />
-    <property name="Repository.Attach.Sources" value="false" />
+    <property name="Repository.Attach.Sources" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last.edited.regexp" value="Sample Text" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/cucumber-reporting-5.0.2.jar!/" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Webpages" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="project.structure.side.proportion" value="0.2551724" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Talida\IdeaProjects\Testing_Ryanair\untitled\src\Cucumber" />
-    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="Pages" />
     </key>
@@ -61,19 +59,17 @@
       <recent name="C:\Users\Talida\IdeaProjects\Testing_Ryanair\untitled\src\Pages" />
       <recent name="C:\Users\Talida\IdeaProjects\Testing_Ryanair\untitled\src" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Talida\IdeaProjects\Testing_Ryanair\untitled\src\Cucumber" />
+    </key>
   </component>
   <component name="RunManager" selected="JUnit.Runner">
-    <configuration name="All Features in: Cucumber" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
-      <option name="CUCUMBER_CORE_VERSION" value="1.2" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/Cucumber" />
-      <option name="GLUE" value="Cucumber" />
-      <option name="MAIN_CLASS_NAME" value="cucumber.api.cli.Main" />
-      <module name="untitled" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvmSMFormatter --monochrome" />
-      <option name="SUGGESTED_NAME" value="All Features in: Cucumber" />
+    <configuration name="Runner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Cucumber.Runner" />
+      <module name="RyanairTests" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="cucumber.api.cli.*" />
+          <option name="PATTERN" value="Cucumber.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -85,7 +81,7 @@
       <option name="FILE_PATH" value="C:\Users\Talida\IdeaProjects\Testing_Ryanair\untitled\src\RyanairTesting.feature" />
       <option name="GLUE" value="Testing" />
       <option name="MAIN_CLASS_NAME" value="cucumber.api.cli.Main" />
-      <module name="untitled" />
+      <module name="RyanairTests" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -95,7 +91,7 @@
       <option name="FILE_PATH" value="$PROJECT_DIR$/src/Cucumber/RyanairTesting.feature" />
       <option name="GLUE" value="CucumberGlue" />
       <option name="MAIN_CLASS_NAME" value="cucumber.api.cli.Main" />
-      <module name="untitled" />
+      <module name="RyanairTests" />
       <option name="SUGGESTED_NAME" value="Feature: RyanairTesting" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
       <extension name="coverage">
@@ -110,7 +106,7 @@
       </method>
     </configuration>
     <configuration name="Runner" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="untitled" />
+      <module name="RyanairTests" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="Cucumber.*" />
@@ -125,7 +121,7 @@
       </method>
     </configuration>
     <configuration name="Testing" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="untitled" />
+      <module name="RyanairTests" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="Cucumber.*" />
@@ -140,7 +136,7 @@
       </method>
     </configuration>
     <configuration name="Testing.testOneAdult" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="untitled" />
+      <module name="RyanairTests" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="Cucumber.*" />
@@ -155,19 +151,84 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Testing.testTwoAdultsOneKid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="RyanairTests" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Cucumber.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Cucumber" />
+      <option name="MAIN_CLASS_NAME" value="Cucumber.Testing" />
+      <option name="METHOD_NAME" value="testTwoAdultsOneKid" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
+      <module name="RyanairTests" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType" factoryName="Kotlin script">
+      <module name="RyanairTests" />
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Cucumber java.Cucumber" />
       <item itemvalue="Cucumber java.Feature: RyanairTesting" />
       <item itemvalue="JUnit.Testing" />
       <item itemvalue="JUnit.Runner" />
       <item itemvalue="JUnit.Testing.testOneAdult" />
-      <item itemvalue="Cucumber java.All Features in: Cucumber" />
+      <item itemvalue="JUnit.Testing.testTwoAdultsOneKid" />
+      <item itemvalue="Application.Runner" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.Runner" />
-        <item itemvalue="Cucumber java.All Features in: Cucumber" />
+        <item itemvalue="JUnit.Testing.testTwoAdultsOneKid" />
         <item itemvalue="JUnit.Testing.testOneAdult" />
+        <item itemvalue="Application.Runner" />
         <item itemvalue="JUnit.Testing" />
       </list>
     </recent_temporary>
@@ -218,10 +279,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="223" y="69" width="1089" height="693" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1580158109066" />
-    <state x="498" y="205" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1580154773617">
+    <state x="587" y="120" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1580683533489">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="498" y="205" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1536.824@0.0.1536.824" timestamp="1580154773617" />
+    <state x="587" y="120" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1536.824@0.0.1536.824" timestamp="1580683533489" />
     <state x="599" y="104" width="746" height="616" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog" timestamp="1580157107504">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -234,66 +295,74 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="169" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.0.1536.824@0.0.1536.824" timestamp="1579981904510" />
-    <state x="94" y="48" key="FileChooserDialogImpl" timestamp="1580157795786">
+    <state x="94" y="48" key="FileChooserDialogImpl" timestamp="1580682951172">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="94" y="48" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1580157795786" />
-    <state width="1493" height="164" key="GridCell.Tab.0.bottom" timestamp="1580161181842">
+    <state x="94" y="48" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1580682951172" />
+    <state width="1493" height="206" key="GridCell.Tab.0.bottom" timestamp="1580682070393">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="164" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1580161181842" />
-    <state width="1493" height="164" key="GridCell.Tab.0.center" timestamp="1580161181841">
+    <state width="1493" height="206" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1580682070393" />
+    <state width="1493" height="206" key="GridCell.Tab.0.center" timestamp="1580682070393">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="164" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1580161181841" />
-    <state width="1493" height="164" key="GridCell.Tab.0.left" timestamp="1580161181841">
+    <state width="1493" height="206" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1580682070393" />
+    <state width="1493" height="206" key="GridCell.Tab.0.left" timestamp="1580682070393">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="164" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1580161181841" />
-    <state width="1493" height="164" key="GridCell.Tab.0.right" timestamp="1580161181841">
+    <state width="1493" height="206" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1580682070393" />
+    <state width="1493" height="206" key="GridCell.Tab.0.right" timestamp="1580682070393">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="164" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1580161181841" />
-    <state width="1493" height="252" key="GridCell.Tab.1.bottom" timestamp="1580160904644">
+    <state width="1493" height="206" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1580682070393" />
+    <state width="1493" height="252" key="GridCell.Tab.1.bottom" timestamp="1580317856141">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="252" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1580160904644" />
-    <state width="1493" height="252" key="GridCell.Tab.1.center" timestamp="1580160904644">
+    <state width="1493" height="252" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1580317856141" />
+    <state width="1493" height="252" key="GridCell.Tab.1.center" timestamp="1580317856141">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="252" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1580160904644" />
-    <state width="1493" height="252" key="GridCell.Tab.1.left" timestamp="1580160904644">
+    <state width="1493" height="252" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1580317856141" />
+    <state width="1493" height="252" key="GridCell.Tab.1.left" timestamp="1580317856141">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="252" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1580160904644" />
-    <state width="1493" height="252" key="GridCell.Tab.1.right" timestamp="1580160904644">
+    <state width="1493" height="252" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1580317856141" />
+    <state width="1493" height="252" key="GridCell.Tab.1.right" timestamp="1580317856141">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="252" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1580160904644" />
-    <state x="192" y="0" key="SettingsEditor" timestamp="1580157834368">
+    <state width="1493" height="252" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1580317856141" />
+    <state x="274" y="0" key="SettingsEditor" timestamp="1580683578136">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="192" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1580157834368" />
+    <state x="274" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1580683578136" />
     <state x="477" y="239" key="com.intellij.ide.util.TipDialog" timestamp="1579984078719">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="477" y="239" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1579984078719" />
-    <state x="498" y="313" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1580153128758">
+    <state x="498" y="313" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1580665917463">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="498" y="313" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1536.824@0.0.1536.824" timestamp="1580153128758" />
-    <state x="209" y="38" key="new project wizard" timestamp="1579981998243">
+    <state x="498" y="313" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1536.824@0.0.1536.824" timestamp="1580665917463" />
+    <state x="598" y="252" key="export.test.results" timestamp="1580682013971">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="209" y="38" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1579981998243" />
+    <state x="598" y="252" key="export.test.results/0.0.1536.824@0.0.1536.824" timestamp="1580682013971" />
+    <state x="209" y="38" key="new project wizard" timestamp="1580653668301">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="209" y="38" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1580653668301" />
     <state x="521" y="342" key="org.jetbrains.plugins.cucumber.inspections.ui.CreateStepDefinitionFileDialog" timestamp="1580152893519">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="521" y="342" key="org.jetbrains.plugins.cucumber.inspections.ui.CreateStepDefinitionFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1580152893519" />
-    <state x="425" y="187" key="run.anything.popup" timestamp="1580155390028">
+    <state x="425" y="187" key="run.anything.popup" timestamp="1580327124604">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1580155390028" />
+    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1580327124604" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1580669767811">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1580669767811" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/untitled$Feature__RyanairTesting.ic" NAME="Feature: RyanairTesting Coverage Results" MODIFIED="1580155218943" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
